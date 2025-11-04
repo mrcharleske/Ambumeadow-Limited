@@ -1,0 +1,1396 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambumeadow Limited - Pioneering Health, Delivering Excellence</title>
+  <link rel="icon" type="image/webp" href="faviconlogo.webp" onerror="this.href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23007acc%22/><text x=%2250%22 y=%2260%22 font-family=%22Arial%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22>A</text></svg>'">
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Modern Color Palette */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --dark-gradient: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-fallback {
+            display: none;
+            height: 50px;
+            width: 50px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .nav-item a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gradient);
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-item a:hover::before,
+        .nav-item a.active::before {
+            left: 0;
+        }
+
+        .nav-item a:hover,
+        .nav-item a.active {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-gradient);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .nav-item a:hover::after,
+        .nav-item a.active::after {
+            width: 80%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: #007acc;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -3;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: all 3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.1);
+            filter: brightness(0.7) contrast(1.2);
+        }
+
+        .hero-image.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hero-image.zoom-out {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+
+        .hero-fallback {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            opacity: 1;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { 
+                background: var(--primary-gradient);
+            }
+            33% { 
+                background: var(--secondary-gradient);
+            }
+            66% { 
+                background: var(--accent-gradient);
+            }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(102, 126, 234, 0.8) 0%,
+                rgba(118, 75, 162, 0.7) 25%,
+                rgba(79, 172, 254, 0.6) 50%,
+                rgba(240, 147, 251, 0.7) 75%,
+                rgba(245, 87, 108, 0.8) 100%
+            );
+            z-index: -2;
+            animation: overlayPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes overlayPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Floating particles animation */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 200px 200px, 300px 300px, 150px 150px;
+            animation: float 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            padding: 0 2rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8ff 50%, #e6f3ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 4s ease-in-out infinite;
+            line-height: 1.1;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { 
+                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 0 60px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 1px;
+            animation: subtitleFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes subtitleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Hero stats section */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            min-width: 150px;
+            animation: statFloat 4s ease-in-out infinite;
+        }
+
+        .hero-stat:nth-child(2) { animation-delay: 0.5s; }
+        .hero-stat:nth-child(3) { animation-delay: 1s; }
+        .hero-stat:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes statFloat {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-primary {
+            background: var(--secondary-gradient);
+            color: white;
+            box-shadow: 0 8px 30px rgba(245, 87, 108, 0.4);
+            animation: ctaPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% { 
+                box-shadow: 0 8px 30px rgba(245, 87, 108, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 12px 40px rgba(245, 87, 108, 0.6);
+                transform: scale(1.02);
+            }
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(245, 87, 108, 0.7);
+            animation: none;
+        }
+
+        .cta-secondary {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            color: white;
+            border: 2px solid var(--glass-border);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* CTA Icon animations */
+        .cta-button .cta-icon {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .cta-button:hover .cta-icon {
+            transform: translateX(5px) scale(1.2);
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+            min-height: 100vh;
+            padding-top: 100px;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #007acc;
+            margin-bottom: 3rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 6rem;
+            padding: 2rem 0;
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(79, 172, 254, 0.2);
+            border-color: rgba(79, 172, 254, 0.3);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.6);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .service-cta {
+            background: var(--secondary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(245, 87, 108, 0.5);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-fallback {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007acc;
+            font-size: 3rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #007acc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007acc;
+        }
+
+        .submit-btn {
+            background: #007acc;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #0066cc;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #007acc;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: #007acc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav class="navbar">
+   <div class="nav-container">
+    <div class="logo-container"><img src="ambumeadow-logo.png" alt="Ambumeadow Limited" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+     <div id="logo-fallback" class="logo-fallback">
+      A
+     </div><span class="logo-text" id="company-name">Ambumeadow Limited</span>
+    </div>
+    <ul class="nav-menu" id="nav-menu">
+     <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+     <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+     <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-menu-toggle" id="mobile-toggle">
+     <div class="hamburger-line"></div>
+     <div class="hamburger-line"></div>
+     <div class="hamburger-line"></div>
+    </div>
+   </div>
+  </nav><!-- Home Page -->
+  <section id="home" class="page-section active"><!-- Hero Section -->
+   <div class="hero">
+    <div class="hero-background"><img src="hero-ambulance.jpg" alt="Emergency Response" class="hero-image active" onerror="this.style.display='none';"> <img src="hero-medical-team.jpg" alt="Medical Team" class="hero-image" onerror="this.style.display='none';"> <img src="hero-hospital.jpg" alt="Medical Facility" class="hero-image" onerror="this.style.display='none';">
+     <div class="hero-fallback"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+     <h1 class="hero-title" id="main-tagline" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">Across Africa, We Bring The Hospital To You</h1>
+     <p class="hero-subtitle" id="company-quote" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="700">Pioneering Health, Delivering Excellence</p><!-- Hero Stats -->
+     <div class="hero-stats" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
+      <div class="hero-stat"><span class="hero-stat-number">24/7</span> <span class="hero-stat-label">Emergency Response</span>
+      </div>
+      <div class="hero-stat"><span class="hero-stat-number">50+</span> <span class="hero-stat-label">Medical Professionals</span>
+      </div>
+      <div class="hero-stat"><span class="hero-stat-number">15+</span> <span class="hero-stat-label">Cities Covered</span>
+      </div>
+      <div class="hero-stat"><span class="hero-stat-number">10K+</span> <span class="hero-stat-label">Lives Saved</span>
+      </div>
+     </div>
+     <div class="hero-cta" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1100"><a href="#" class="cta-button cta-primary" id="emergency-cta"> <span class="cta-icon">🚨</span> Get Emergency Help </a> <a href="#services" class="cta-button cta-secondary nav-link"> <span class="cta-icon">🏥</span> View Our Services </a>
+     </div>
+    </div>
+   </div><!-- Services Preview -->
+   <div class="container" style="padding: 6rem 2rem; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%); border-radius: 30px; margin: 4rem auto; backdrop-filter: blur(20px);">
+    <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Our Life-Saving Services</h2>
+    <p style="text-align: center; font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 4rem; max-width: 600px; margin-left: auto; margin-right: auto;" data-aos="fade-up" data-aos-delay="200">Comprehensive healthcare solutions designed to meet every medical need across Africa, from emergency response to specialized care programs.</p>
+    <div class="services-grid">
+     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="service-icon">
+       🏥
+      </div>
+      <h3 class="service-title">Domus Vita Sanctum Program</h3>
+      <p class="service-description">Our flagship elite medical care program brings hospital-quality treatment directly to your home. Experience personalized healthcare with our team of specialized medical professionals, advanced diagnostic equipment, and 24/7 monitoring systems.</p><a href="#services" class="service-cta nav-link"> <span>Explore Elite Care</span> <span>→</span> </a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="service-icon">
+       🏍️
+      </div>
+      <h3 class="service-title">Emergency Response Bikes</h3>
+      <p class="service-description">When every second counts, our emergency response motorcycles navigate through traffic to reach you faster than traditional ambulances. Equipped with life-saving equipment and trained paramedics for immediate medical intervention.</p><a href="#services" class="service-cta nav-link"> <span>Get Fast Response</span> <span>→</span> </a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="service-icon">
+       🚑
+      </div>
+      <h3 class="service-title">Advanced Life Support Ambulances</h3>
+      <p class="service-description">Our fully equipped mobile ICUs provide critical care during transport. Complete with advanced medical equipment, cardiac monitors, ventilators, and staffed by certified emergency medical technicians and paramedics.</p><a href="#services" class="service-cta nav-link"> <span>Book Ambulance</span> <span>→</span> </a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+      <div class="service-icon">
+       👶
+      </div>
+      <h3 class="service-title">Maternal &amp; Family Health</h3>
+      <p class="service-description">Comprehensive maternal healthcare from antenatal visits to safe delivery support. Our specialized team ensures the safety of both mother and child throughout the pregnancy journey with regular monitoring and emergency support.</p><a href="#services" class="service-cta nav-link"> <span>Maternal Care</span> <span>→</span> </a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+      <div class="service-icon">
+       💊
+      </div>
+      <h3 class="service-title">Chronic Disease Management</h3>
+      <p class="service-description">Specialized care for chronic conditions including dialysis services, diabetes management, hypertension control, and ongoing health monitoring to improve quality of life and prevent complications.</p><a href="#services" class="service-cta nav-link"> <span>Manage Health</span> <span>→</span> </a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+      <div class="service-icon">
+       🧠
+      </div>
+      <h3 class="service-title">Mental Health &amp; Wellness</h3>
+      <p class="service-description">Comprehensive mental health services including counseling, therapy, psychiatric consultations, and wellness programs designed to support your emotional and psychological well-being in a safe, confidential environment.</p><a href="#services" class="service-cta nav-link"> <span>Get Support</span> <span>→</span> </a>
+     </div>
+    </div>
+   </div><!-- Why Choose Us Section -->
+   <div class="container" style="padding: 6rem 2rem;">
+    <h2 class="section-title" data-aos="fade-up">Why Choose Ambumeadow Limited?</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;">
+     <div style="text-align: center; padding: 2rem;" data-aos="fade-up" data-aos-delay="100">
+      <div style="width: 100px; height: 100px; background: var(--success-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2.5rem; box-shadow: 0 15px 40px rgba(67, 233, 123, 0.3);">
+       ⚡
+      </div>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Rapid Response</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6;">Average response time of under 8 minutes across all major African cities with our strategic positioning and advanced dispatch system.</p>
+     </div>
+     <div style="text-align: center; padding: 2rem;" data-aos="fade-up" data-aos-delay="200">
+      <div style="width: 100px; height: 100px; background: var(--accent-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2.5rem; box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);">
+       🏆
+      </div>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Expert Medical Team</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6;">Certified medical professionals with international training and extensive experience in emergency medicine and specialized care.</p>
+     </div>
+     <div style="text-align: center; padding: 2rem;" data-aos="fade-up" data-aos-delay="300">
+      <div style="width: 100px; height: 100px; background: var(--secondary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2.5rem; box-shadow: 0 15px 40px rgba(240, 147, 251, 0.3);">
+       🌍
+      </div>
+      <h3 style="font-size: 1.5rem; margin-bottom: 1rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Pan-African Coverage</h3>
+      <p style="color: var(--text-secondary); line-height: 1.6;">Extensive network across 15+ major African cities with plans for continued expansion to serve more communities.</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- Services Page -->
+  <section id="services" class="page-section">
+   <div class="container">
+    <h1 class="section-title" data-aos="fade-up">Our Comprehensive Services</h1>
+    <div class="services-grid">
+     <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="service-icon">
+       🏥
+      </div>
+      <h3 class="service-title">Domus Vita Sanctum Program</h3>
+      <p class="service-description">Our flagship elite medical care program brings hospital-quality treatment directly to your home. Experience personalized healthcare with our team of specialized medical professionals.</p><a href="#" class="service-cta" id="domus-cta">Get Elite Care</a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="service-icon">
+       🏍️
+      </div>
+      <h3 class="service-title">Emergency Response Bikes</h3>
+      <p class="service-description">When every second counts, our emergency response motorcycles navigate through traffic to reach you faster than traditional ambulances. Equipped with life-saving equipment and trained paramedics.</p><a href="#" class="service-cta" id="bike-cta">Request Emergency Bike</a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="service-icon">
+       🚑
+      </div>
+      <h3 class="service-title">Advanced Life Support Ambulances</h3>
+      <p class="service-description">Our fully equipped mobile ICUs provide critical care during transport. Complete with advanced medical equipment and staffed by certified emergency medical technicians.</p><a href="#" class="service-cta" id="ambulance-cta">Book Ambulance</a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+      <div class="service-icon">
+       👶
+      </div>
+      <h3 class="service-title">Maternal &amp; Family Health</h3>
+      <p class="service-description">From antenatal visits to safe delivery support, we provide comprehensive maternal healthcare services ensuring the safety of both mother and child throughout the journey.</p><a href="#" class="service-cta" id="maternal-cta">Maternal Care</a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+      <div class="service-icon">
+       💊
+      </div>
+      <h3 class="service-title">Chronic Disease Management</h3>
+      <p class="service-description">Specialized care for chronic conditions including dialysis services, diabetes management, and ongoing health monitoring to improve quality of life.</p><a href="#" class="service-cta" id="chronic-cta">Manage Condition</a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+      <div class="service-icon">
+       🧠
+      </div>
+      <h3 class="service-title">Mental Health &amp; Wellness Support</h3>
+      <p class="service-description">Comprehensive mental health services including counseling, therapy, and wellness programs designed to support your emotional and psychological well-being.</p><a href="#" class="service-cta" id="mental-cta">Get Support</a>
+     </div>
+     <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+      <div class="service-icon">
+       🎓
+      </div>
+      <h3 class="service-title">Students Health &amp; Learning Programs</h3>
+      <p class="service-description">Campus and hostel response services with health education and training programs specifically designed for educational institutions and student communities.</p><a href="#" class="service-cta" id="student-cta">Campus Services</a>
+     </div>
+    </div>
+   </div>
+  </section><!-- About Page -->
+  <section id="about" class="page-section">
+   <div class="container">
+    <h1 class="section-title" data-aos="fade-up">About Ambumeadow Limited</h1>
+    <div class="about-content">
+     <div data-aos="fade-right">
+      <h2 style="color: #007acc; margin-bottom: 1rem;">Pioneering Health, Delivering Excellence</h2>
+      <p class="about-text">At Ambumeadow Limited, we are revolutionizing healthcare delivery across Africa. Our mission is simple yet profound: to bring the hospital to you, wherever you are. We understand that quality healthcare should not be limited by geography, traffic, or accessibility challenges.</p>
+      <p class="about-text">Founded with the vision of making premium medical care accessible to all, we have developed a comprehensive suite of services that address the unique healthcare challenges faced across the African continent. From our elite Domus Vita Sanctum Program to our rapid Emergency Response Bikes, every service is designed with one goal in mind: saving lives and improving health outcomes.</p>
+      <p class="about-text">Our team of dedicated medical professionals, equipped with state-of-the-art technology and driven by compassion, works tirelessly to ensure that quality healthcare is never more than a call away. We are not just a medical service provider; we are your healthcare partners, committed to your well-being every step of the way.</p>
+     </div>
+     <div data-aos="fade-left"><img src="about-team.jpg" alt="Ambumeadow Medical Team" class="about-image" onerror="this.style.display='none'; document.getElementById('about-fallback').style.display='flex';">
+      <div id="about-fallback" class="about-fallback">
+       🏥
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Page -->
+  <section id="contact" class="page-section">
+   <div class="container">
+    <h1 class="section-title" data-aos="fade-up">Contact Us</h1>
+    <div class="contact-grid">
+     <div class="contact-info" data-aos="fade-right">
+      <h3 style="color: #007acc; margin-bottom: 2rem;">Get In Touch</h3>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📞
+       </div>
+       <div>
+        <h4>Emergency &amp; Inquiries</h4>
+        <p id="phone-display">+254796757156</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        ✉️
+       </div>
+       <div>
+        <h4>Email Address</h4>
+        <p id="email-display">david26mbugua@gmail.com</p>
+       </div>
+      </div>
+      <div class="contact-item">
+       <div class="contact-icon">
+        📍
+       </div>
+       <div>
+        <h4>Location</h4>
+        <p id="location-display">Kahawa Sukari, Nairobi</p>
+       </div>
+      </div>
+      <div style="margin-top: 2rem;">
+       <h4 style="color: #007acc; margin-bottom: 1rem;">Emergency Services Available 24/7</h4>
+       <p>For immediate medical emergencies, call our hotline or use the emergency contact buttons throughout our website.</p>
+      </div>
+     </div>
+     <div class="contact-form" data-aos="fade-left">
+      <h3 style="color: #007acc; margin-bottom: 1.5rem;">Send Us a Message</h3>
+      <form id="contact-form">
+       <div class="form-group"><label for="name">Full Name</label> <input type="text" id="name" name="name" required>
+       </div>
+       <div class="form-group"><label for="email">Email Address</label> <input type="email" id="email" name="email" required>
+       </div>
+       <div class="form-group"><label for="phone">Phone Number</label> <input type="tel" id="phone" name="phone">
+       </div>
+       <div class="form-group"><label for="service">Service Interested In</label> <select id="service" name="service" style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 8px;"> <option value="">Select a service</option> <option value="domus">Domus Vita Sanctum Program</option> <option value="emergency-bike">Emergency Response Bikes</option> <option value="ambulance">Advanced Life Support Ambulances</option> <option value="maternal">Maternal &amp; Family Health</option> <option value="chronic">Chronic Disease Management</option> <option value="mental">Mental Health &amp; Wellness</option> <option value="student">Student Health Programs</option> </select>
+       </div>
+       <div class="form-group"><label for="message">Message</label> <textarea id="message" name="message" rows="5" required></textarea>
+       </div><button type="submit" class="submit-btn"> <span class="btn-text">Send Message</span> <span class="loading" style="display: none;"></span> </button>
+       <div class="success-message" id="success-message">
+        Thank you for your message! We'll get back to you within 24 hours.
+       </div>
+      </form>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h3>Ambumeadow Limited</h3>
+      <p>Pioneering Health, Delivering Excellence across Africa. We bring the hospital to you with our comprehensive medical services.</p>
+     </div>
+     <div class="footer-section">
+      <h3>Quick Links</h3>
+      <p><a href="#home" class="nav-link">Home</a></p>
+      <p><a href="#services" class="nav-link">Services</a></p>
+      <p><a href="#about" class="nav-link">About</a></p>
+      <p><a href="#contact" class="nav-link">Contact</a></p>
+     </div>
+     <div class="footer-section">
+      <h3>Emergency Contact</h3>
+      <p>📞 <span id="footer-phone">+254796757156</span></p>
+      <p>✉️ <span id="footer-email">david26mbugua@gmail.com</span></p>
+      <p>📍 <span id="footer-location">Kahawa Sukari, Nairobi</span></p>
+     </div>
+     <div class="footer-section">
+      <h3>Services</h3>
+      <p>Emergency Response</p>
+      <p>Advanced Life Support</p>
+      <p>Maternal Health</p>
+      <p>Mental Wellness</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2024 Ambumeadow Limited. All rights reserved. | Across Africa, We Bring The Hospital To You</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Configuration object for editable content
+        const defaultConfig = {
+            company_name: "Ambumeadow Limited",
+            main_tagline: "Across Africa, We Bring The Hospital To You",
+            company_quote: "Pioneering Health, Delivering Excellence",
+            phone_number: "+254796757156",
+            email_address: "david26mbugua@gmail.com",
+            location: "Kahawa Sukari, Nairobi"
+        };
+
+        // Initialize AOS animations with advanced settings
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-out-cubic',
+            once: false,
+            offset: 120,
+            delay: 100,
+            anchorPlacement: 'top-bottom',
+            mirror: true,
+            animatedClassName: 'aos-animate',
+            initClassName: 'aos-init'
+        });
+
+        // Refresh AOS on window resize for better responsiveness
+        window.addEventListener('resize', () => {
+            AOS.refresh();
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.page-section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show target section
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(targetId).classList.add('active');
+                
+                // Close mobile menu
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Advanced Hero image rotation with smooth transitions
+        let currentImageIndex = 0;
+        const heroImages = document.querySelectorAll('.hero-image');
+        
+        function rotateHeroImages() {
+            if (heroImages.length > 1) {
+                // Add zoom-out class to current image
+                heroImages[currentImageIndex].classList.add('zoom-out');
+                heroImages[currentImageIndex].classList.remove('active');
+                
+                // Move to next image
+                const nextIndex = (currentImageIndex + 1) % heroImages.length;
+                
+                // After a short delay, show the next image
+                setTimeout(() => {
+                    heroImages[currentImageIndex].classList.remove('zoom-out');
+                    heroImages[nextIndex].classList.add('active');
+                    currentImageIndex = nextIndex;
+                }, 500);
+            }
+        }
+
+        // Start image rotation with longer intervals for better viewing
+        setInterval(rotateHeroImages, 6000);
+
+        // Add parallax effect to hero images
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero');
+            if (heroSection) {
+                const rate = scrolled * -0.5;
+                heroSection.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Contact form functionality
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const loading = submitBtn.querySelector('.loading');
+        const successMessage = document.getElementById('success-message');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Show loading state
+            btnText.style.display = 'none';
+            loading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Reset button
+                btnText.style.display = 'inline';
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+
+        // CTA button functionality
+        function setupCTAButtons() {
+            const phoneNumber = window.elementSdk?.config?.phone_number || defaultConfig.phone_number;
+            const emailAddress = window.elementSdk?.config?.email_address || defaultConfig.email_address;
+            
+            // Emergency CTA
+            const emergencyCTA = document.getElementById('emergency-cta');
+            emergencyCTA.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=🚨 EMERGENCY: I need immediate medical assistance!`, '_blank');
+            });
+
+            // Service CTAs
+            const serviceCTAs = {
+                'domus-cta': 'I need information about the Domus Vita Sanctum Program',
+                'bike-cta': '🚨 I need an Emergency Response Bike immediately!',
+                'ambulance-cta': '🚑 I need an Advanced Life Support Ambulance',
+                'maternal-cta': 'I need maternal and family health services',
+                'chronic-cta': 'I need chronic disease management services',
+                'mental-cta': 'I need mental health and wellness support',
+                'student-cta': 'I need information about student health programs'
+            };
+
+            Object.entries(serviceCTAs).forEach(([id, message]) => {
+                const btn = document.getElementById(id);
+                if (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        window.open(`https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`, '_blank');
+                    });
+                }
+            });
+        }
+
+        // Update UI based on config
+        function updateUI(config) {
+            const elements = {
+                'company-name': config.company_name || defaultConfig.company_name,
+                'main-tagline': config.main_tagline || defaultConfig.main_tagline,
+                'company-quote': config.company_quote || defaultConfig.company_quote,
+                'phone-display': config.phone_number || defaultConfig.phone_number,
+                'email-display': config.email_address || defaultConfig.email_address,
+                'location-display': config.location || defaultConfig.location,
+                'footer-phone': config.phone_number || defaultConfig.phone_number,
+                'footer-email': config.email_address || defaultConfig.email_address,
+                'footer-location': config.location || defaultConfig.location
+            };
+
+            Object.entries(elements).forEach(([id, value]) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = value;
+                }
+            });
+        }
+
+        // Initialize Elements SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig: defaultConfig,
+                onConfigChange: async (config) => {
+                    updateUI(config);
+                },
+                mapToCapabilities: (config) => ({
+                    recolorables: [],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ["company_name", config.company_name || defaultConfig.company_name],
+                    ["main_tagline", config.main_tagline || defaultConfig.main_tagline],
+                    ["company_quote", config.company_quote || defaultConfig.company_quote],
+                    ["phone_number", config.phone_number || defaultConfig.phone_number],
+                    ["email_address", config.email_address || defaultConfig.email_address],
+                    ["location", config.location || defaultConfig.location]
+                ])
+            });
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            setupCTAButtons();
+            updateUI(defaultConfig);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99968215022aaa15',t:'MTc2MjI4NDQ0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
