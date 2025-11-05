@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Ambumeadow Limited - Full range of medical services: Domus Vita Sanctum, emergency bikes, ambulances, maternal care, chronic disease, mental health, student programs.">
+  <meta property="og:title" content="Services - Ambumeadow Limited">
+  <meta property="og:description" content="7 life-saving healthcare services across Africa. From elite home ICUs to 8-minute emergency response.">
+  <meta property="og:image" content="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." />
+  <meta property="og:type" content="website">
+  <title>Our Services - Ambumeadow Limited</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23007acc'/><text x='50' y='60' font-family='Arial' font-size='40' fill='white' text-anchor='middle'>A</text></svg>">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <style>
+    @import url('https://unpkg.com/aos@2.3.1/dist/aos.css');
+  </style>
+
+  <style>
+    :root {
+      --primary: #007acc; --primary-dark: #0066cc; --secondary: #f5576c; --success: #43e97b; --accent: #4facfe;
+      --dark: #1a202c; --text: #2d3748; --light: #f8fafc; --gray: #718096;
+      --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Inter', sans-serif; background:var(--light); color:var(--text); line-height:1.6; overflow-x:hidden; padding-top:80px; }
+    img { max-width:100%; display:block; }
+
+    /* Navbar */
+    .navbar { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95); backdrop-filter:blur(12px); z-index:1000; padding:1rem 0; box-shadow:0 2px 15px rgba(0,0,0,0.1); transition:0.3s; }
+    .navbar.scrolled { background:rgba(255,255,255,0.98); box-shadow:0 4px 20px rgba(0,0,0,0.15); }
+    .nav-container { max-width:1200px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 1.5rem; }
+    .logo { display:flex; align-items:center; gap:0.5rem; font-weight:700; font-size:1.8rem; font-family:'Orbitron', monospace; background:linear-gradient(45deg,#667eea,#764ba2,#f093fb,#f5576c); -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 3s infinite; }
+    @keyframes shimmer { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+    .nav-menu { display:flex; gap:2rem; list-style:none; }
+    .nav-menu a { text-decoration:none; color:#333; font-weight:600; padding:0.5rem 1rem; border-radius:8px; transition:0.3s; position:relative; }
+    .nav-menu a::after { content:''; position:absolute; bottom:0; left:50%; width:0; height:3px; background:var(--gradient-secondary); transition:0.4s; transform:translateX(-50%); border-radius:2px; }
+    .nav-menu a:hover, .nav-menu a.active { color:var(--primary); background:rgba(0,122,204,0.1); }
+    .nav-menu a:hover::after, .nav-menu a.active::after { width:80%; }
+    .mobile-toggle { display:none; flex-direction:column; gap:4px; cursor:pointer; }
+    .hamburger { width:25px; height:3px; background:var(--primary); border-radius:2px; transition:0.3s; }
+    .mobile-toggle.active .hamburger:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
+    .mobile-toggle.active .hamburger:nth-child(2) { opacity:0; }
+    .mobile-toggle.active .hamburger:nth-child(3) { transform:rotate(-45deg) translate(7px,-6px); }
+
+    /* Page Header */
+    .page-header { text-align:center; padding:4rem 2rem 3rem; background:linear-gradient(135deg, var(--light), rgba(0,122,204,0.05)); }
+    .page-title { font-size:3.2rem; color:var(--primary); margin-bottom:1rem; font-weight:800; }
+    .page-subtitle { font-size:1.3rem; color:var(--gray); max-width:800px; margin:auto; }
+
+    /* Services Grid */
+    .container { max-width:1200px; margin:auto; padding:2rem; }
+    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:2.8rem; margin-top:2rem; }
+    .service-card { background:white; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1); transition:0.4s; border:1px solid #e2e8f0; }
+    .service-card:hover { transform:translateY(-10px); box-shadow:0 25px 50px rgba(0,0,0,0.18); }
+    .service-img { height:240px; overflow:hidden; }
+    .service-img img { width:100%; height:100%; object-fit:cover; transition:0.5s; }
+    .service-card:hover .service-img img { transform:scale(1.08); }
+    .service-content { padding:2.2rem; }
+    .service-icon { width:70px; height:70px; background:var(--primary); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; color:white; font-size:2rem; box-shadow:0 8px 25px rgba(0,122,204,0.3); }
+    .service-title { font-size:1.6rem; color:var(--dark); margin:1rem 0 0.8rem; font-weight:600; }
+    .service-desc { color:#555; font-size:1.05rem; line-height:1.7; margin-bottom:1.8rem; }
+    .service-cta { background:var(--gradient-secondary); color:white; padding:1rem 2.2rem; border:none; border-radius:50px; font-weight:600; font-size:1rem; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:0.6rem; box-shadow:0 8px 25px rgba(245,87,108,0.3); transition:0.4s; text-transform:uppercase; letter-spacing:0.5px; }
+    .service-cta:hover { transform:translateY(-3px) scale(1.05); box-shadow:0 15px 40px rgba(245,87,108,0.5); }
+
+    /* Floating Emergency */
+    .floating-emergency {
+      position:fixed; bottom:20px; right:20px; z-index:999; background:#e63946; color:white; width:70px; height:70px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; font-size:0.9rem; font-weight:600; box-shadow:0 10px 30px rgba(230,57,70,0.4); animation:pulse 2s infinite; cursor:pointer; text-align:center; line-height:1.2;
+    }
+    @keyframes pulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.12); } }
+    .floating-emergency:hover { background:#d62839; }
+
+    /* Responsive */
+    @media (max-width:768px) {
+      .nav-menu { position:fixed; top:75px; left:-100%; width:100%; height:calc(100vh-75px); background:white; flex-direction:column; padding-top:2rem; transition:0.3s; backdrop-filter:blur(10px); }
+      .nav-menu.active { left:0; }
+      .mobile-toggle { display:flex; }
+      .page-title { font-size:2.5rem; }
+      .services-grid { grid-template-columns:1fr; }
+      .service-img { height:200px; }
+      .floating-emergency { width:60px; height:60px; font-size:0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">Ambumeadow</div>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="1-home.html">Home</a></li>
+        <li><a href="2-services.html" class="active">Services</a></li>
+        <li><a href="3-about.html">About</a></li>
+        <li><a href="4-contact.html">Contact</a></li>
+      </ul>
+      <div class="mobile-toggle" id="mobile-toggle">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="page-header" data-aos="fade-up">
+    <h1 class="page-title">Our Comprehensive Services</h1>
+    <p class="page-subtitle">From elite home ICUs to 8-minute emergency response — healthcare designed for Africa’s realities.</p>
+  </header>
+
+  <!-- Services Grid -->
+  <div class="container">
+    <div class="services-grid">
+
+      <!-- 1. Domus Vita Sanctum -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-img">
+          <img src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." alt="Domus Vita Sanctum: Bedroom transformed into full ICU with hospital bed, oxygen, monitors">
+        </div>
+        <div class="service-content">
+          <div class="service-icon">Hospital</div>
+          <h3 class="service-title">Domus Vita Sanctum Program</h3>
+          <p class="service-desc">Our flagship elite care brings hospital-grade treatment to your home. 24/7 doctors, advanced diagnostics, full ICU setup in 4 hours.</p>
+          <a href="https://wa.me/254796757156?text=I%20want%20Domus%20Vita%20Sanctum%20details" class="service-cta">Get Elite Care</a>
+        </div>
+      </div>
+
+      <!-- 2. Emergency Bikes -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-img">
+          <img src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." alt="Red emergency response bike rushing through Nairobi traffic with medic">
+        </div>
+        <div class="service-content">
+          <div class="service-icon">Motorcycle</div>
+          <h3 class="service-title">Emergency Response Bikes</h3>
+          <p class="service-desc">Beat traffic. Under 8 min response. Fully equipped with defibrillator, oxygen, trauma kit. Paramedic on arrival.</p>
+          <a href="tel:+254796757156" class="service-cta">Call Bike Now</a>
+        </div>
+      </div>
+
+      <!-- 3. ALS Ambulances -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-img">
+          <img src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." alt="Inside ambulance: ventilator, cardiac monitor, IV drip, medic working">
+        </div>
+        <div class="service-content">
+          <div class="service-icon">Ambulance</div>
+          <h3 class="service-title">Advanced Life Support Ambulances</h3>
+          <p class="service-desc">Mobile ICUs with ventilators, cardiac monitors, ultrasound. Critical care during transport to hospital.</p>
+          <a href="tel:+254796757156" class="service-cta">Book Ambulance</a>
+        </div>
+      </div>
+
+      <!-- 4. Maternal & Family -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-img">
+          <img src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." alt="Pregnant mother with midwife doing antenatal check at home">
+        </div>
+        <div class="service-content">
+          <div class="service-icon">Baby</div>
+          <h3 class="service-title">Maternal & Family Health</h3>
+          <p class="service-desc">Antenatal visits, safe delivery support, postnatal care. 24/7 emergency obstetric response.</p>
+          <a href="https://wa.me/254796757156?text=Maternal%20health%20inquiry" class="service-cta">Book Visit</a>
+        </div>
+      </div>
+
+      <!-- 5. Chronic Disease -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-img">
+          <img src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." alt="Nurse doing home dialysis for patient">
+        </div>
+        <div class="service-content">
+          <div class="service-icon">Heart</div>
+          <h3 class="service-title">Chronic Disease Management</h3>
+          <p class="service-desc">Home dialysis, diabetes control, hypertension monitoring. Weekly doctor visits, lab tests included.</p>
+          <a href="https://wa.me/254796757156?text=Chronic%20care%20program" class="service-cta">Enroll Now</a>
+        </div>
+      </div>
+
+      <!-- 6. Mental Health -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-img">
+          <img src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." alt="Patient in therapy session with psychologist">
+        </div>
+        <div class="service-content">
+          <div class="service-icon">Brain</div>
+          <h3 class="service-title">Mental Health & Wellness</h3>
+          <p class="service-desc">Confidential counseling, psychiatric care, group therapy. Home visits or telehealth.</p>
+          <a href="https://wa.me/254796757156?text=Mental%20health%20support" class="service-cta">Get Help</a>
+        </div>
+      </div>
+
+      <!-- 7. Student Programs -->
+      <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+        <div class="service-img">
+          <img src="data:image/webp;base64,UklGRiQAAABXRUJQVlA4IBgAAAAwAQCdASoQAAkAAIAE..." alt="Medical team at university hostel doing health education">
+        </div>
+        <div class="service-content">
+          <div class="service-icon">Graduation Cap</div>
+          <h3 class="service-title">Student Health & Learning</h3>
+          <p class="service-desc">Campus emergency response, hostel medical posts, health education workshops.</p>
+          <a href="https://wa.me/254796757156?text=Student%20health%20program" class="service-cta">Campus Care</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating Emergency Button -->
+  <div class="floating-emergency" onclick="window.location.href='tel:+254796757156'">
+    <div>Emergency</div>
+    <div style="font-size:0.7rem;">Call Now</div>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: false, offset: 80 });
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Mobile menu
+    document.getElementById('mobile-toggle').addEventListener('click', () => {
+      document.getElementById('mobile-toggle').classList.toggle('active');
+      document.getElementById('nav-menu').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
